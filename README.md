@@ -18,9 +18,20 @@ sap-api-integrations-reads-rmq-kube は、主にエッジコンピューティ�
 ## クラウド環境での利用
 sap-api-integrations-reads-rmq-kube は、外部システムがクラウド環境である場合にSAPと統合するときにおいても、利用可能なように設計されています。  
 
+## RabbitMQ からの JSON Input
+
+sap-api-integrations-reads-rmq-kube は、Inputとして、RabbitMQ からのメッセージをJSON形式で受け取ります。 
+Input の サンプルJSON は、Inputs フォルダ内にあります。  
+
+## RabbitMQ からのメッセージ受信による イベントドリヴン の ランタイム実行
+
+sap-api-integrations-reads-rmq-kube は、RabbitMQ からのメッセージを受け取ると、イベントドリヴンでランタイムを実行します。  
+AION の仕様では、Kubernetes 上 の 当該マイクロサービスPod は 立ち上がったまま待機状態で当該メッセージを受け取り、（コンテナ起動などの段取時間をカットして）即座にランタイムを実行します。　
+
 ## RabbitMQ への JSON Output
 
-sap-api-integrations-reads-rmq-kube は、Outputとして、RabbitMQ へのメッセージをJSON形式で出力します。
+sap-api-integrations-reads-rmq-kube は、Outputとして、RabbitMQ へのメッセージをJSON形式で出力します。  
+Input の サンプルJSON は、Outputs フォルダ内にあります。  
 
 ## RabbitMQ の マスタサーバ環境
 
@@ -66,7 +77,7 @@ Latona および AION の SAP 関連リソースでは、Inputs フォルダ下�
 * sample.jsonの記載例(1)  
 
 accepter において 下記の例のように、データの種別（＝APIの種別）を指定します。  
-ここでは、"Header", "Item" が指定されています。
+ここでは、"Header" が指定されています。
 
 ```
 "api_schema": "sap.s4.beh.xxxxxxxx.v1.XXXXXXXX.Created.v1",
