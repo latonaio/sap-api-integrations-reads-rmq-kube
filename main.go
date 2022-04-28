@@ -23,7 +23,7 @@ func main() {
 		conf.SAP.BaseURL(),
 		conf.RMQ.QueueTo(),
 		rmq,
-		l,
+		l
 	)
 
 	iter, err := rmq.Iterator()
